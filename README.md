@@ -5,9 +5,9 @@ No subscription, account, document upload, or runtime AI API is required.
 
 ## Download
 
-Download `OpenPDF-Studio.exe` from [Releases](https://github.com/RishabhShenoy03/claude-hackathon/releases/latest).
+Download `OpenPDF-Studio.exe` from [Releases](https://github.com/joeLku1/claude-hackathon/releases/latest).
 Windows builds run on pushes to master. The executable is also uploaded under
-the completed [Build Windows EXE workflow](https://github.com/RishabhShenoy03/claude-hackathon/actions/workflows/windows.yml).
+the completed [Build Windows EXE workflow](https://github.com/joeLku1/claude-hackathon/actions/workflows/windows.yml).
 The executable is unsigned. Windows may show a publisher warning.
 
 **Validation:** Engine tests cover PDF operations, styled boxes, save/reopen,

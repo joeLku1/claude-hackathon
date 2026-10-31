@@ -56,5 +56,15 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         shell: pwsh
         run: |
-          $tag = 'build-${{ github.run_number }}'
-          gh release create $tag dist/OpenPDF-Studio.exe --title "OpenPDF Studio build ${{ github.run_number }}" --target '${{ github.sha }}' --notes 'UI and text-editing fixes: DPI-aware controls with separate UI fonts and compact toolbars; active-font-sized caret; automatic added-box sizing without reducing font size; overlapping native text sections remain independently editable. Retains lightweight drag frames, caches and single-page refresh. Source and packaged GUI/performance tests run in CI. Unsigned executable.'
+          # Continue the release series at build 11 in this fork. Failed runs
+          # do not consume release numbers; later successful builds increment it.
+          $releases = gh release list --limit 100 --json tagName | ConvertFrom-Json
+          if ($LASTEXITCODE -ne 0) { throw 'Could not read existing release numbers' }
+          $buildNumber = 11
+          foreach ($release in $releases) {
+            if ($release.tagName -match '^build-(\d+)$') {
+              $buildNumber = [Math]::Max($buildNumber, [int]$Matches[1] + 1)
+            }
+          }
+          $tag = "build-$buildNumber"
+          gh release create $tag dist/OpenPDF-Studio.exe --title "OpenPDF Studio build $buildNumber" --target '${{ github.sha }}' --notes 'PDF interaction fixes: horizontal trackpad scrolling; proportional vertical scrolling using Windows preferences; configurable watermarks including 45-degree full-page and repeated layouts; text and freehand highlight modes; click-again toggle for text-box editing. Existing toolbar layout and styling retained. PDF engine, source GUI, and packaged executable tests must pass before publication. Unsigned Windows executable with English OCR.'
