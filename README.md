@@ -19,6 +19,21 @@ Results are recorded in Actions; this is not an exhaustive visual compatibility 
 
 ### Direct editing and navigation
 
+- **Scrolling:** two-finger horizontal gestures (or Shift + wheel) pan left/right.
+  Vertical wheel movement respects the Windows scroll-line/page preference and
+  uses proportional pixel movement, including small trackpad deltas. Ctrl + wheel
+  still zooms. Scroll distance is independent of the canvas height and PDF zoom.
+- **Edit → Highlight:** with text selected, highlights that selection as before.
+  Otherwise, choose **Highlight text** to mark each subsequent text drag, or
+  **Freehand highlight** to draw translucent yellow strokes anywhere on the page.
+  The same menu offers highlighter thickness. Escape or Select text exits;
+  Escape during a stroke cancels it. Each completed mark supports Undo/Redo.
+- **Tools → Watermark:** choose top-left, centered, full-page, or repeated text;
+  adjust angle, opacity, colour and font size, and apply to all pages or just the
+  current page. The default is a 45-degree full-page watermark that automatically
+  fits each visible page, including rotated/cropped pages. Text supports Latin-1.
+- **Edit text boxes** is a toggle: click again to hide the blue outlines and return
+  to text selection. An active text edit is applied before leaving the mode.
 - **Pen:** click the Pen button above the page, then hold the left mouse button
   and scribble. **Draw → Ink colour** changes colour; **Thickness** sets 0.5–20 pt.
   Strokes appear live and save as printable PDF ink annotations. Each stroke is

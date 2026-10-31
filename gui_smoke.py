@@ -298,3 +298,5 @@ def exercise_app(app):
     exercise_performance(app)
     from gui_ui_checks import exercise_ui
     exercise_ui(app)
+    from gui_interaction_checks import exercise_interactions
+    exercise_interactions(app)
